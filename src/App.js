@@ -1,13 +1,14 @@
 import './App.css';
-import { mapcontainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 function App() {
   return (
-  <mapcontainer centre={[48.8566, 2.3522]} zoom={13}>
+  <MapContainer centre={[48.8566, 2.3522]} zoom={13}>
     <TileLayer>
-      attribu
+      attribution='&copy' <a href="https://www.openstreetmap.org/copyright"></a>
+      url=""
     </TileLayer>
-  </mapcontainer>
+  </MapContainer>
   );
 }
 
