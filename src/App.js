@@ -1,17 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { mapcontainer, TileLayer } from "react-leaflet";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <li>Ujamaa Africa</li>
-        </p>
-
-      </header>
-    </div>
+  <mapcontainer centre={[48.8566, 2.3522]} zoom={13}>
+    <TileLayer>
+      attribu
+    </TileLayer>
+  </mapcontainer>
   );
 }
 
