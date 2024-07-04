@@ -1,13 +1,14 @@
 import './App.css';
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Icon } from 'leaflet';
 
 function App() {
 
   // Co-ordinates
 
   const markers = [
-    {
+    { 
       geocode: [-1.253, 36.8844],
       popUp: "Ujamaa Oficce"
     },
@@ -20,6 +21,15 @@ function App() {
       popUp: "Kiambu road"
     },
   ];
+
+  // Custom icons
+  const customIcon = new Icon ({
+    iconUrl: "",
+    iconSize: [38, 38]
+  }
+
+  )
+
   return (
     <div>
   <MapContainer center={[-.1318, 36.81]} zoom={7}>
@@ -31,7 +41,7 @@ function App() {
     {
       markers.map(marker =>(
       <Marker position={marker.geocode}>
-        
+
       </Marker>
       ))
   
