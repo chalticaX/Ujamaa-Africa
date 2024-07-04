@@ -9,7 +9,7 @@ function App() {
         <p>
           <li>Ujamaa Africa</li>
         </p>
-  
+
       </header>
     </div>
   );
