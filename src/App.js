@@ -1,9 +1,11 @@
 import './App.css';
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { popup } from 'leaflet';
 
 function App() {
+
+  // Co-ordinates
+
   const markers = [
     {
       geocode: [-1.253, 36.8844],
@@ -25,6 +27,16 @@ function App() {
     attribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     />
+
+    {
+      markers.map(marker =>(
+      <Marker position={marker.geocode}>
+        
+      </Marker>
+      ))
+  
+    }
+
   </MapContainer>
   </div>
   );
