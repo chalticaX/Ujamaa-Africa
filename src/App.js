@@ -1,12 +1,19 @@
 import './App.css';
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { popup } from 'leaflet';
 
 function App() {
   const markers = [
     {
-      geocode: [-1.253, 36.8844]
-    }
+      geocode: [-1.253, 36.8844],
+      popUp: "Ujamaa Oficce"
+    },
+    {
+      geocode: [-1.2866, 36.8174],
+      popUp: "Nairobi"
+    },
+    
   ]
   return (
     <div>
