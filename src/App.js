@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 function App() {
   return (
     <div>
-  <MapContainer center={[51.505, -0.09]} zoom={13}>
+  <MapContainer center={[-.1318, 36.81]} zoom={7}>
     <TileLayer 
     attribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
