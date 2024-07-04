@@ -3,6 +3,11 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 function App() {
+  const markers = [
+    {
+      geocode: [-1.253, 36.8844]
+    }
+  ]
   return (
     <div>
   <MapContainer center={[-.1318, 36.81]} zoom={7}>
