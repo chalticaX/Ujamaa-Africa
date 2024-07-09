@@ -4,6 +4,9 @@ import "leaflet/dist/leaflet.css";
 import { Icon } from 'leaflet';
 
 function App() {
+  // Layer
+  
+
 
   // Co-ordinates
 
@@ -22,7 +25,7 @@ function App() {
     },
   ];
 
-  // Custom icons
+  // icons
   const customIcon = new Icon ({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/798/798008.png",
     iconSize: [38, 38]
