@@ -3,11 +3,14 @@ import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { geoJson, Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
-import kenyaJSON from "./kenya.js";
+import kenyaJSON from "./kenya";
 import { L } from "leaflet";
 
 
 function App() {
+
+  const geoJsonDataArray = [kenyaJSON, polygonJSON];
+
   // Icons
   const customIcon = new Icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/798/798008.png',
@@ -48,13 +51,14 @@ const markers = [
           </Marker>
         ))};
 
-      
+      {geoJsonDataArray.map((data, index) => (
         <GeoJSON
-
-          data={kenyaJSON}
+          key={index}
+          data={data}
           style={{ fillColor: 'blue', color: 'blue', weight: 2, fillOpacity: 0.5 }}
         />
-        
+      ))}
+     
       </MapContainer>
     </div>
   );
