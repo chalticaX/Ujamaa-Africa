@@ -1,9 +1,11 @@
 import React from 'react-leaflet';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Icon } from 'leaflet';
+import { geoJson, Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
+import kenyaJSON from "./kenya.js";
 import { L } from "leaflet";
+
 
 function App() {
   // Icons
@@ -44,13 +46,15 @@ const markers = [
 
             <Popup>{marker.popUp}</Popup>
           </Marker>
-        ))}
-        <GeoJSON
-          data={polygonJSON}
-          style={{ fillColor: 'blue', color: 'blue', weight: 2, fillOpacity: 0.5 }}
-        
-        />
+        ))};
+
       
+        <GeoJSON
+
+          data={kenyaJSON}
+          style={{ fillColor: 'blue', color: 'blue', weight: 2, fillOpacity: 0.5 }}
+        />
+        
       </MapContainer>
     </div>
   );
