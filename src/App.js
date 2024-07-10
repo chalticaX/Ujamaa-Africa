@@ -1,10 +1,10 @@
 import React from 'react-leaflet';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
-import { L } from "leaflet";
+// import { L } from "leaflet";
 
 
 function App() {
@@ -36,7 +36,6 @@ const markers = [
     popUp: 'Kiambu road',
   },
 ];
-
 
   return (
 
@@ -72,6 +71,31 @@ const markers = [
         />
 
       ))};
+
+      {/* layer controls */}
+
+      <LayersControl position="topright">
+        <LayersControl.BaseLayer checked name="Default Street Map">
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Dark pallette">
+          <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+           minZoom={0} maxZoom={20} ext="png" />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Stadia Stamen Watercolor">
+          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+           minZoom={0} maxZoom={16} ext="jpg" />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Satellite View">
+          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg'
+          minZoom={0} maxZoom={20} ext="jpg" />
+        </LayersControl.BaseLayer>
+        
+      </LayersControl>
      
       </MapContainer>
 
