@@ -1,7 +1,7 @@
 import React from 'react-leaflet';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { geoJson, Icon } from 'leaflet';
+import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
 import { L } from "leaflet";
@@ -9,15 +9,19 @@ import { L } from "leaflet";
 
 function App() {
 
+  // GeoJSON Array
+
   const geoJsonDataArray = [kenyaJSON, polygonJSON];
 
-  // Icons
+  // icons
+  
   const customIcon = new Icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/798/798008.png',
     iconSize: [38, 38],
   });
 
-  // Co-ordinates
+  // coordinates
+
 const markers = [
   {
     geocode: [-1.253, 36.8844],
@@ -34,32 +38,43 @@ const markers = [
 ];
 
 
-
   return (
+
     <div>
+
       <MapContainer center={[-1.1318, 36.81]} zoom={7} style={{ height: '100vh' }}>
+
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Ujamaa Africa</a> '
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* markers */}
+        {/* MARKERS */}
+
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.geocode} icon={customIcon}>
 
             <Popup>{marker.popUp}</Popup>
+
           </Marker>
+
         ))};
 
+
+        {/* GEOJSON */}
+
       {geoJsonDataArray.map((data, index) => (
+
         <GeoJSON
           key={index}
           data={data}
           style={{ fillColor: 'blue', color: 'blue', weight: 2, fillOpacity: 0.5 }}
         />
-      ))}
+
+      ))};
      
       </MapContainer>
+
     </div>
   );
 }
