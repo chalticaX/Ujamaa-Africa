@@ -81,19 +81,19 @@ const markers = [
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Dark pallette">
-          <TileLayer url= "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+          <TileLayer url= "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3"
           attribution= '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
            minZoom={0} maxZoom={20} ext="png" />
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Stadia Stamen Watercolor">
-          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3'
            attribution= '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
            minZoom={0} maxZoom={16} ext="jpg" />
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Satellite View">
-          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg'
+          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3"'
           attribution= '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           minZoom={0} maxZoom={20} ext="jpg" />
         </LayersControl.BaseLayer>
