@@ -4,6 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
+import  MarkerClusterGroup  from "react-leaflet-markercluster";
+import 'react-leaflet-markercluster/dist/styles.min.css';
 // import { L } from "leaflet";
 
 
@@ -16,7 +18,7 @@ function App() {
   const handleFeatureClick = (event) => {
     const layer = event.target;
     console.log('Feature clicked:', layer.feature);
-    // You can access the feature properties and do something here
+
   };
   
   const handleMouseOver = (event) => {
@@ -38,7 +40,9 @@ function App() {
       dashArray: '3',
       fillOpacity: 0
     });
+
     layer.closePopup();
+
   };
   
   const onEachFeature = (feature, layer) => {
@@ -58,6 +62,8 @@ function App() {
   const customIcon = new Icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/798/798008.png',
     iconSize: [38, 38],
+    iconAnchor: [19, 38], // Anchor the icon at its center bottom
+    popupAnchor: [0, -38], // Position the popup above the icon
   });
 
   // coordinates
@@ -90,15 +96,14 @@ const markers = [
 
         {/* MARKERS */}
 
+        {/* <MarkerClusterGroup>
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.geocode} icon={customIcon}>
-
             <Popup>{marker.popUp}</Popup>
-
           </Marker>
-
-        ))};
-
+        ))}
+      </MarkerClusterGroup>
+        */}
 
         {/* GEOJSON */}
 
