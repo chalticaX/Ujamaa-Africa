@@ -3,7 +3,7 @@ const polygonJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {name:"migori"},
+        "properties": {name:"Migori County"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

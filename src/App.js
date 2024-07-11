@@ -40,7 +40,7 @@ function App() {
   };
 
   const onEachFeature = (feature, layer) => {
-    const popupContent = `Feature: ${feature.properties.name}`;
+    const popupContent = `${feature.properties.name}`;
     layer.bindPopup(popupContent);
 
     layer.on({

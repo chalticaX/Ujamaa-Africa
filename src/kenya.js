@@ -3,7 +3,7 @@ const kenyaJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {name:"Kenya"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
