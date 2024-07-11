@@ -13,6 +13,46 @@ function App() {
 
   const geoJsonDataArray = [kenyaJSON, polygonJSON];
 
+  const handleFeatureClick = (event) => {
+    const layer = event.target;
+    console.log('Feature clicked:', layer.feature);
+    // You can access the feature properties and do something here
+  };
+  
+  const handleMouseOver = (event) => {
+    const layer = event.target;
+    layer.setStyle({
+      weight: 5,
+      color: '#666',
+      dashArray: '',
+      fillOpacity: 0.7
+    });
+    layer.openPopup();
+  };
+  
+  const handleMouseOut = (event) => {
+    const layer = event.target;
+    layer.setStyle({
+      weight: 4,
+      color: 'black',
+      dashArray: '3',
+      fillOpacity: 0
+    });
+    layer.closePopup();
+  };
+  
+  const onEachFeature = (feature, layer) => {
+    const popupContent = `Feature: ${feature.properties.name}`;
+    layer.bindPopup(popupContent);
+    
+    layer.on({
+      click: handleFeatureClick,
+      mouseover: handleMouseOver,
+      mouseout: handleMouseOut,
+    });
+  };
+  
+
   // icons
   
   const customIcon = new Icon({
@@ -67,7 +107,8 @@ const markers = [
         <GeoJSON
           key={index}
           data={data}
-          style={{ fillColor: 'blue', color: 'blue', weight: 2, fillOpacity: 0.5 }}
+          style={{ color: 'black', weight: 4, fillOpacity: 0.0 , dashArray: 3 }}
+          onEachFeature={onEachFeature}
         />
 
       ))};
@@ -93,13 +134,16 @@ const markers = [
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Satellite View">
-          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3"'
+          <TileLayer url= 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3'
           attribution= '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           minZoom={0} maxZoom={20} ext="jpg" />
         </LayersControl.BaseLayer>
         
       </LayersControl>
      
+      
+
+
       </MapContainer>
 
     </div>
