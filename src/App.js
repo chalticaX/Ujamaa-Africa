@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
+import westernJSON from "./western.js";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
@@ -12,7 +13,7 @@ import Legend from './legend.js';
 function App() {
 
   // GeoJSON Array
-  const geoJsonDataArray = [kenyaJSON, polygonJSON];
+  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON];
 
   const handleFeatureClick = (event) => {
     const layer = event.target;
@@ -20,7 +21,7 @@ function App() {
   };
 
   const handleMouseOver = (event) => {
-    const layer = event.target;
+    const layer = event.target
     layer.setStyle({
       weight: 5,
       color: '#666',
@@ -31,7 +32,7 @@ function App() {
   };
 
   const handleMouseOut = (event) => {
-    const layer = event.target;
+    const layer = event.target
     layer.setStyle({
       weight: 4,
       color: 'black',
@@ -41,7 +42,10 @@ function App() {
     layer.closePopup();
   };
 
+
   const onEachFeature = (feature, layer) => {
+    // const popupContent = `${feature.properties.name}`;
+    // layer.bindPopup(popupContent);
 
     layer.on({
       click: handleFeatureClick,
@@ -49,6 +53,7 @@ function App() {
       mouseout: handleMouseOut,
     });
   };
+
 
   // Icons
   const customIcon = new Icon({
@@ -76,7 +81,7 @@ function App() {
 
   return (
     <div>
-      <MapContainer center={[-1.1318, 36.81]} zoom={7} style={{ height: '100vh' }}>
+      <MapContainer center={[-1.1318, 36.81]} zoom={6} style={{ height: '100vh' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Ujamaa Africa</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,7 +90,7 @@ function App() {
         {/* MARKERS */}
         <MarkerClusterGroup>
           {markers.map((marker, index) => (
-            <Marker key={index} position={marker.geocode} icon={customIcon}>
+            <Marker key={index} position={marker.geocode} icon={customIcon} >
               <Popup>{marker.popUp}</Popup>
             </Marker>
           ))}
