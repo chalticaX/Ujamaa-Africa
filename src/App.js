@@ -10,6 +10,7 @@ import kajiadoJSON from './kajiado.js';
 import kiambuJSON from './kiambu.js';
 import machakosJSON from './machakos.js';
 import nairobiJSON from './nairobi.js';
+import nakuruJSON from './nakuru.js';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
@@ -17,7 +18,7 @@ import Legend from './legend.js';
 function App() {
 
   // GeoJSON Array
-  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON ,kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON];
+  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON ,kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON];
 
   const handleFeatureClick = (event) => {
     const layer = event.target;
