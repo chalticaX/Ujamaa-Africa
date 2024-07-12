@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, Marker, GeoJSON, LayersControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
-import westernJSON from "./western.js";
+import westernJSON from "./components/western.js";
 import kajiadoJSON from './kajiado.js';
 import kiambuJSON from './kiambu.js';
 import machakosJSON from './machakos.js';
@@ -49,8 +49,8 @@ function App() {
 
 
   const onEachFeature = (feature, layer) => {
-    // const popupContent = `${feature.properties.name}`;
-    // layer.bindPopup(popupContent);
+     const popupContent = `${feature.properties.name}`;
+     layer.bindPopup(popupContent);
 
     layer.on({
       click: handleFeatureClick,
@@ -96,7 +96,7 @@ function App() {
         <MarkerClusterGroup>
           {markers.map((marker, index) => (
             <Marker key={index} position={marker.geocode} icon={customIcon} >
-              <Popup>{marker.popUp}</Popup>
+            
             </Marker>
           ))}
         </MarkerClusterGroup> 
