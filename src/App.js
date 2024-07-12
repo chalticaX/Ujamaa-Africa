@@ -42,8 +42,6 @@ function App() {
   };
 
   const onEachFeature = (feature, layer) => {
-    const popupContent = `${feature.properties.name}`;
-    layer.bindPopup(popupContent);
 
     layer.on({
       click: handleFeatureClick,
@@ -56,7 +54,6 @@ function App() {
   const customIcon = new Icon({
     iconUrl: 'https://img.icons8.com/?size=100&id=43731&format=png&color=000000',
     iconSize: [38, 38],
-    iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   });
 
