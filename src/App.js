@@ -106,7 +106,7 @@ function App() {
           <GeoJSON
             key={index}
             data={data}
-            style={{ color: 'black', weight: 4, fillOpacity: 0.0, dashArray: 3 }}
+            style={{ color: 'black', weight: 2, fillOpacity: 0.0, dashArray: 3 }}
             onEachFeature={onEachFeature}
           />
         ))}
