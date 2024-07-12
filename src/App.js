@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
@@ -6,6 +7,7 @@ import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import Legend from './legend.js';
 
 function App() {
 
@@ -23,7 +25,7 @@ function App() {
       weight: 5,
       color: '#666',
       dashArray: '',
-      fillOpacity: 0.7
+      fillOpacity: 0.2
     });
     layer.openPopup();
   };
@@ -73,6 +75,7 @@ function App() {
       popUp: 'Kiambu road',
     },
   ];
+
 
   return (
     <div>
@@ -137,6 +140,7 @@ function App() {
             />
           </LayersControl.BaseLayer>
         </LayersControl>
+        <Legend />
       </MapContainer>
     </div>
   );
