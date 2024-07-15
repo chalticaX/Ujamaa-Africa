@@ -146,10 +146,10 @@ function App() {
           <div>
             <h2>Feature Information</h2>
             <p>Name: {clickedFeature.name}</p>
-            {/* Add more properties as needed */}
+            <p>Learners: {clickedFeature.Learners}</p>
           </div>
         ) : (
-          <p>Click on a feature to see its details</p>
+          <p>Click on a County to see the Statistics </p>
         )}
       </div>
     </div>
