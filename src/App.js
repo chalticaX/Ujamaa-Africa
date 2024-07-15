@@ -141,10 +141,10 @@ function App() {
           <Legend />
         </MapContainer>
       </div>
-      <div style={{ flex: 1, padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' }}>
+      <div style={{ flex: 1, padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
         {clickedFeature ? (
           <div>
-            <h2>Feature Information</h2>
+            <h2>County Information</h2>
             <p>Name: {clickedFeature.name}</p>
             <p>Learners: {clickedFeature.Learners}</p>
           </div>
