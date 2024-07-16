@@ -20,6 +20,17 @@ function App() {
 
   const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON];
 
+const getStyle = (feature) => {
+  return {
+    color: 'black',
+    weight: 2,
+    fillOpacity: 0.5,
+    fillColor: feature.properties.color, // Assuming each feature has a 'color' property
+    dashArray: 3
+  };
+};
+
+
   const handleFeatureClick = (event) => {
     const layer = event.target;
     setClickedFeature(layer.feature.properties);
@@ -29,9 +40,9 @@ function App() {
     const layer = event.target;
     layer.setStyle({
       weight: 5,
-      color: '#666',
+      
       dashArray: '',
-      fillOpacity: 0.2
+    
     });
     layer.openPopup();
   };
@@ -40,9 +51,7 @@ function App() {
     const layer = event.target;
     layer.setStyle({
       weight: 4,
-      color: 'black',
       dashArray: '3',
-      fillOpacity: 0
     });
     layer.closePopup();
   };
@@ -98,7 +107,7 @@ function App() {
             <GeoJSON
               key={index}
               data={data}
-              style={{ color: 'black', weight: 2, fillOpacity: 0.0, dashArray: 3 }}
+              style={getStyle}
               onEachFeature={onEachFeature}
             />
           ))}

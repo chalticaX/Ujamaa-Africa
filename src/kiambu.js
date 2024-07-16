@@ -3,7 +3,7 @@ const kiambuJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Kiambu"},
+        "properties": {name: "Kiambu", color : "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

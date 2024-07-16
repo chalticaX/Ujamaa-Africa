@@ -3,7 +3,7 @@ const nakuruJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Nakuru"},
+        "properties": {name: "Nakuru", color: "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

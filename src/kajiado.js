@@ -3,7 +3,7 @@ const kajiadoJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": { name: "kajiado"},
+        "properties": { name: "kajiado" , color: "#d76c27" },
         "geometry": {
           "type": "Polygon",
           "coordinates": [

@@ -3,7 +3,7 @@ const polygonJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {name:"Migori", Learners: "1000000"},
+        "properties": {name:"Migori", Learners: "1000000", color: "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
