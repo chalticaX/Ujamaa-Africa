@@ -25,8 +25,8 @@ const getStyle = (feature) => {
     color: 'black',
     weight: 2,
     fillOpacity: 0.5,
-    fillColor: feature.properties.color, // Assuming each feature has a 'color' property
-    dashArray: 3
+    fillColor: feature.properties.color,
+    dashArray: 3,
   };
 };
 
@@ -150,12 +150,39 @@ const getStyle = (feature) => {
           <Legend />
         </MapContainer>
       </div>
-      <div style={{ flex: 1, padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
+      <div style={{alignItems: 'center', display: 'flex', padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
         {clickedFeature ? (
           <div>
             <h2>County Information</h2>
-            <p>Name: {clickedFeature.name}</p>
-            <p>Learners: {clickedFeature.Learners}</p>
+
+            <br></br>
+            <p>County : {clickedFeature.name}</p>
+            <br></br>
+            <p>Learners Trained : {clickedFeature.Learners}</p>
+            <br></br>
+            <span 
+      className="icon 1" 
+      style={{ 
+        backgroundColor: '#999b37',
+        width: '24px', 
+        height: '24px', 
+        display: 'inline-block', 
+        marginRight: '8px'
+      }}></span>
+      <br></br>
+        <span>Target Learners</span>
+        
+      
+<span 
+      className="icon 2" 
+      style={{ 
+        backgroundColor: 'blue',
+        width: '24px', 
+        height: '24px', 
+        display: 'list-item', 
+        marginTop: '8px',
+      }}></span>
+          <span>Learners Trained</span>
           </div>
         ) : (
           <p>Click on a County to see the Statistics </p>
