@@ -3,7 +3,7 @@ const nairobiJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Nairobi0" , color: "#d76c27"},
+        "properties": {name: "Nairobi" , color: "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

@@ -22,7 +22,7 @@ function App() {
 
 const getStyle = (feature) => {
   return {
-    color: 'black',
+     color: 'black',
     weight: 2,
     fillOpacity: 0.5,
     fillColor: feature.properties.color,
@@ -40,9 +40,8 @@ const getStyle = (feature) => {
     const layer = event.target;
     layer.setStyle({
       weight: 5,
-      
-      dashArray: '',
-    
+      dashArray: '3',
+      fillOpacity: 0.5,
     });
     layer.openPopup();
   };
@@ -52,6 +51,7 @@ const getStyle = (feature) => {
     layer.setStyle({
       weight: 4,
       dashArray: '3',
+      fillOpacity: 0.3, 
     });
     layer.closePopup();
   };
@@ -150,7 +150,7 @@ const getStyle = (feature) => {
           <Legend />
         </MapContainer>
       </div>
-      <div style={{alignItems: 'center', display: 'flex', padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
+      <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
         {clickedFeature ? (
           <div>
             <h2>County Information</h2>
