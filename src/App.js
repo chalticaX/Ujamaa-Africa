@@ -11,6 +11,11 @@ import kiambuJSON from './kiambu.js';
 import machakosJSON from './machakos.js';
 import nairobiJSON from './nairobi.js';
 import nakuruJSON from './nakuru.js';
+import narokJSON from './narok.js';
+import kakamegaJSON from './kakamega.js';
+import kibweziJSON from './kibwezi.js';
+import kituiJSON from './kitui.js';
+import nyamiraJSON from './nyamira.js';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
@@ -18,7 +23,7 @@ import Legend from './legend.js';
 function App() {
   const [clickedFeature, setClickedFeature] = useState(null);
 
-  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON];
+  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
 
 const getStyle = (feature) => {
   return {
