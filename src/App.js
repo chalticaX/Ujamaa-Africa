@@ -125,7 +125,7 @@ const getStyle = (feature) => {
 
             <LayersControl.BaseLayer name="Dark palette">
               <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3"
+                url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 minZoom={0}
                 maxZoom={20}
@@ -135,7 +135,7 @@ const getStyle = (feature) => {
 
             <LayersControl.BaseLayer name="Stadia Stamen Watercolor">
               <TileLayer
-                url='https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3'
+                url='https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
                 attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 minZoom={0}
                 maxZoom={16}
@@ -145,7 +145,7 @@ const getStyle = (feature) => {
 
             <LayersControl.BaseLayer name="Satellite View">
               <TileLayer
-                url='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg?apikey=4bc5ae1a-e40d-4030-b17d-8079a33b8ba3'
+                url='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png'
                 attribution='&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 minZoom={0}
                 maxZoom={20}
@@ -159,13 +159,14 @@ const getStyle = (feature) => {
       <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
         {clickedFeature ? (
           <div>
-            <h2>County Information</h2>
+            <h2> County Statistics </h2>
 
             <br></br>
             <p>County : {clickedFeature.name}</p>
             <br></br>
-            <p>Learners Trained : {clickedFeature.Learners}</p>
-            <br></br>
+
+            {/* TL span */}
+
             <span 
       className="icon 1" 
       style={{ 
@@ -174,21 +175,23 @@ const getStyle = (feature) => {
         height: '24px', 
         display: 'inline-block', 
         marginRight: '8px'
-      }}></span>
-      <br></br>
-        <span>Target Learners</span>
-        
-      
-<span 
+      }}><p>Learners Trained : {clickedFeature.Learners}</p></span>
+
+      {/* LT span */}
+
+            <span 
       className="icon 2" 
       style={{ 
+        display: 'flex',
         backgroundColor: 'blue',
         width: '24px', 
         height: '24px', 
         display: 'list-item', 
         marginTop: '8px',
-      }}></span>
-          <span>Learners Trained</span>
+      }}><p>Learners Trained : {clickedFeature.Learners}</p></span>
+            <br></br>
+      <br></br>
+
           </div>
         ) : (
           <p>Click on a County to see the Statistics </p>
