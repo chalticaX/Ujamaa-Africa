@@ -59,7 +59,7 @@ const kakamegaJSON ={
       },
       {
         "type": "Feature",
-        "properties": {name: "Kakamega / vihiga", TargetLearners: "906,124", LearnersTrained: "32,000", color: "#640522"},
+        "properties": {name: "Kakamega / vihiga", TargetLearners: "906,124", LearnersTrained: "32,000", color: "#82462b"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

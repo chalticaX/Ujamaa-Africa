@@ -3,7 +3,7 @@ const kituiJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Kitui", TargetLearners : "370,510", LearnersTrained: "16,000", color: "#640522"},
+        "properties": {name: "Kitui", TargetLearners : "370,510", LearnersTrained: "16,000", color: "#82462b"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
