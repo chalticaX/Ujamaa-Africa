@@ -3,7 +3,7 @@ const nyamiraJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Kisii", color: "#640522"},
+        "properties": {name: "Kisii", TargetLearners: "286,881", LearnersTrained: "16,100", color: "#640522"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
@@ -31,7 +31,7 @@ const nyamiraJSON ={
       },
       {
         "type": "Feature",
-        "properties": {name: "Nyamira" , color: "#640522"},
+        "properties": {name: "Nyamira", TargetLearners: "286,881", LearnersTrained: "16,100", color: "#640522"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

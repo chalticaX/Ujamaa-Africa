@@ -3,7 +3,7 @@ const machakosJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "Machakos", color: "#d76c27"},
+        "properties": {name: "Machakos", TargetLearners: "343,435", LearnersTrained: "230,000", color: "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

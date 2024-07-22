@@ -3,7 +3,7 @@ const kibweziJSON ={
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "kibwezi", color: "#640522"},
+        "properties": {name: "Makueni",  TargetLearners : "370,510", LearnersTrained: "16,000", color: "#640522"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [

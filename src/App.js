@@ -175,20 +175,19 @@ const getStyle = (feature) => {
         height: '24px', 
         display: 'inline-block', 
         marginRight: '8px'
-      }}><p>Learners Trained : {clickedFeature.Learners}</p></span>
+      }}><p style={{ margin: '0 0 0 30px' }}> Target Learners: {clickedFeature.TargetLearners}</p></span>
 
       {/* LT span */}
 
             <span 
       className="icon 2" 
       style={{ 
-        display: 'flex',
         backgroundColor: 'blue',
         width: '24px', 
         height: '24px', 
         display: 'list-item', 
         marginTop: '8px',
-      }}><p>Learners Trained : {clickedFeature.Learners}</p></span>
+      }}>  <p style={{ margin: '0 0 0 30px' }}> Learners Trained: {clickedFeature.LearnersTrained}</p></span>
             <br></br>
       <br></br>
 
