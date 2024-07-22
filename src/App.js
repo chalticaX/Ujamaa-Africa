@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { MapContainer, TileLayer, Marker, GeoJSON, LayersControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import "bootstrap/dist/css/bootstrap.css";
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
@@ -21,7 +22,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
 
 function App() {
-  const [clickedFeature, setClickedFeature] = useState(null);
+  const [ clickedFeature, setClickedFeature] = useState(null);
 
   const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
 
