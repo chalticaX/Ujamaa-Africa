@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { MapContainer, TileLayer, Marker, GeoJSON, LayersControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap/dist/css/bootstrap.css';
 import { Icon } from 'leaflet';
 import polygonJSON from './polygon.js';
 import kenyaJSON from "./kenya";
@@ -45,9 +45,7 @@ const getStyle = (feature) => {
   const handleMouseOver = (event) => {
     const layer = event.target;
     layer.setStyle({
-      weight: 5,
-      dashArray: '3',
-      fillOpacity: 0.5,
+      weight: 2,
     });
     layer.openPopup();
   };
@@ -55,9 +53,7 @@ const getStyle = (feature) => {
   const handleMouseOut = (event) => {
     const layer = event.target;
     layer.setStyle({
-      weight: 4,
-      dashArray: '3',
-      fillOpacity: 0.3, 
+      weight: 2,
     });
     layer.closePopup();
   };
@@ -156,7 +152,7 @@ const getStyle = (feature) => {
           <Legend />
         </MapContainer>
       </div>
-      <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px', borderLeft: '1px solid #ccc', overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
+      <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px',  overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
         {clickedFeature ? (
           <div>
             <h2> County Statistics </h2>
