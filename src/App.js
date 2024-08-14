@@ -4,9 +4,8 @@ import { MapContainer, TileLayer, Marker, GeoJSON, LayersControl } from 'react-l
 import 'leaflet/dist/leaflet.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Icon } from 'leaflet';
-import polygonJSON from './polygon.js';
+import migoriJSON from './migori.js';
 import kenyaJSON from "./kenya";
-import westernJSON from "./components/western.js";
 import kajiadoJSON from './kajiado.js';
 import kiambuJSON from './kiambu.js';
 import machakosJSON from './machakos.js';
@@ -24,7 +23,7 @@ import Legend from './legend.js';
 function App() {
   const [ clickedFeature, setClickedFeature] = useState(null);
 
-  const geoJsonDataArray = [kenyaJSON, polygonJSON, westernJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
+  const geoJsonDataArray = [kenyaJSON, migoriJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
 
 const getStyle = (feature) => {
   return {
