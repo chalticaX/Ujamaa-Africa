@@ -3,7 +3,7 @@ const narokJSON = {
     "features": [
       {
         "type": "Feature",
-        "properties": {name: "HomaBay", TargetLearners: "308,853", LearnersTrained: "16,000", color: "#82462b"},
+        "properties": {name: "HomaBay", TargetLearners: "378,736", LearnersTrained: "160,000", color: "#82462b"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
@@ -106,7 +106,7 @@ const narokJSON = {
       },
       {
         "type": "Feature",
-        "properties": {name: "Nakuru", TargetLearners: "378,736", LearnersTrained: "100,000", color: "#d76c27"},
+        "properties": {name: "Nakuru", TargetLearners: "515,101", LearnersTrained: "78,000", color: "#d76c27"},
         "geometry": {
           "type": "Polygon",
           "coordinates": [
