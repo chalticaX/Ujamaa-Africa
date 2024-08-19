@@ -151,7 +151,7 @@ const getStyle = (feature) => {
           <Legend />
         </MapContainer>
       </div>
-      <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px',  overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
+      <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px',  overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9', position: 'absolute', top: '90px', right: '10px', zIndex: '1000', opacity: '0.9' }}>
         {clickedFeature ? (
           <div>
             <h2> County Statistics </h2>
