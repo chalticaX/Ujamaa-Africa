@@ -22,12 +22,17 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
 
 function MapPage () {
+
   const [ clickedFeature , setClickedFeature] = useState(null);
+
   const [showMap, setShowMap] = useState(false); 
+
   const geoJsonDataArray = [kenyaJSON, migoriJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
 
 const getStyle = (feature) => {
+
   return {
+
      color: 'black',
     weight: 2,
     fillOpacity: 0.5,
@@ -95,7 +100,7 @@ const getStyle = (feature) => {
     <div>
   
     <Button variant="primary" onClick={() => setShowMap(true)}>
-      Open Map Window
+      Open Map 
     </Button>
 
     
@@ -104,6 +109,7 @@ const getStyle = (feature) => {
         <Modal.Title>Map</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        
         <div style={{ width: '100%', height: '600px' }}>
           <MapContainer center={[-1.1318, 36.81]} zoom={6} style={{ height: '100%', width: '100%' }}>
             <TileLayer

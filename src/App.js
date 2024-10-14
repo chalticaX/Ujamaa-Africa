@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home'; // Import the new Home page
-import MapPage from './MapPage'; // Rename your map component to MapPage
+import Home from './Home';
+import MapPage from './MapPage'; 
 
 function App() {
   return (
