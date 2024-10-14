@@ -5,6 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Icon } from 'leaflet';
 import { Button, Modal } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home.js'; 
 import migoriJSON from './migori.js';
 import kenyaJSON from "./kenya";
 import kajiadoJSON from './kajiado.js';
@@ -22,9 +24,16 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
 
 function App() {
-  const [ clickedFeature, setClickedFeature] = useState(null);
+  const [ clickedFeature , setClickedFeature] = useState(null);
   const [showMap, setShowMap] = useState(false); 
   const geoJsonDataArray = [kenyaJSON, migoriJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
+
+  <Router>
+  <Routes>
+    <Route path="/" element={<Home/>} />
+  </Routes>
+</Router>
+
 
 const getStyle = (feature) => {
   return {
@@ -93,12 +102,12 @@ const getStyle = (feature) => {
 
   return (
     <div>
-    {/* Button to open the map modal */}
+  
     <Button variant="primary" onClick={() => setShowMap(true)}>
       Open Map Window
     </Button>
 
-    {/* Map Modal */}
+    
     <Modal show={showMap} onHide={() => setShowMap(false)} size="xl">
       <Modal.Header closeButton>
         <Modal.Title>Map</Modal.Title>
@@ -163,11 +172,53 @@ const getStyle = (feature) => {
             </LayersControl>
             <Legend />
           </MapContainer>
-        </div>
+          
+          </div>
+      <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px',  overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9' }}>
+        {clickedFeature ? (
+          <div>
+            <h2> County Statistics </h2>
+
+            <br></br>
+            <p>County : {clickedFeature.name}</p>
+            <br></br>
+
+            {/* TL span */}
+
+            <span 
+      className="icon 1" 
+      style={{ 
+        backgroundColor: '#999b37',
+        width: '24px', 
+        height: '24px', 
+        display: 'inline-block', 
+        marginRight: '8px'
+      }}><p style={{ margin: '0 0 0 30px' }}> Target Learners: {clickedFeature.TargetLearners}</p></span>
+
+      {/* LT span */}
+
+            <span 
+      className="icon 2" 
+      style={{ 
+        backgroundColor: 'blue',
+        width: '24px', 
+        height: '24px', 
+        display: 'list-item', 
+        marginTop: '8px',
+      }}>  <p style={{ margin: '0 0 0 30px' }}> Learners Trained: {clickedFeature.LearnersTrained}</p></span>
+            <br></br>
+      <br></br>
+
+          </div>
+        ) : (
+          <p>Click on a County to see the Statistics </p>
+        )}
+      </div>
       </Modal.Body>
-    </Modal>
-  </div>
-);
+      </Modal>
+    </div>
+  );
 }
+
 
 export default App;
