@@ -24,12 +24,11 @@ const Home = () => {
   return (
     <div>
     
-      <Navbar id='nav1'>
+      <Navbar id='nav1' expand="lg" >
         <Navbar.Brand as={Link} to="/">
-        <img src="ujamaa-africa\src\logo-1-Ujamaa-Africa.png" style={{width: '30px', height: '30px', marginRight: '10px'}}></img>
+        <img src="/Logo-4-Ujamaa-Africa-.png" style={{width: '66px', height: '40px', marginRight: '240px'}}></img>
         UJAMAA AFRICA</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-         
+        <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
