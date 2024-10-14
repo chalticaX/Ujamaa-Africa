@@ -20,6 +20,8 @@ import nyamiraJSON from './nyamira.js';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import Legend from './legend.js';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 
 function MapPage () {
 
@@ -126,7 +128,8 @@ function MapPage () {
   ];
 
   return (
-
+    
+    
     <div>
           <div style={{ width: '100%', height: '820px' }} >
             <MapContainer center={[-1.1318, 36.81]} zoom={6} style={{ height: '100%', width: '100%' }} whenCreated={(mapInstance) => mapRef.current = mapInstance}>
