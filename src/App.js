@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, GeoJSON, LayersControl } from 'react-l
 import 'leaflet/dist/leaflet.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Icon } from 'leaflet';
+import { Button, Modal } from 'react-bootstrap';
 import migoriJSON from './migori.js';
 import kenyaJSON from "./kenya";
 import kajiadoJSON from './kajiado.js';
@@ -22,7 +23,7 @@ import Legend from './legend.js';
 
 function App() {
   const [ clickedFeature, setClickedFeature] = useState(null);
-
+  const [showMap, setShowMap] = useState(false); 
   const geoJsonDataArray = [kenyaJSON, migoriJSON, kajiadoJSON, kiambuJSON, machakosJSON, nairobiJSON, nakuruJSON , narokJSON, kakamegaJSON, kibweziJSON, kituiJSON, nyamiraJSON];
 
 const getStyle = (feature) => {
@@ -52,6 +53,7 @@ const getStyle = (feature) => {
   const handleMouseOut = (event) => {
     const layer = event.target;
     layer.setStyle({
+
       weight: 2,
     });
     layer.closePopup();
@@ -90,109 +92,82 @@ const getStyle = (feature) => {
   ];
 
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1, height: '100vh' }}>
-        <MapContainer center={[-1.1318, 36.81]} zoom={6} style={{ height: '100vh' }}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Ujamaa Africa</a>'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+    <div>
+    {/* Button to open the map modal */}
+    <Button variant="primary" onClick={() => setShowMap(true)}>
+      Open Map Window
+    </Button>
 
-          <MarkerClusterGroup>
-            {markers.map((marker, index) => (
-              <Marker key={index} position={marker.geocode} icon={customIcon} />
-            ))}
-          </MarkerClusterGroup>
-
-          {geoJsonDataArray.map((data, index) => (
-            <GeoJSON
-              key={index}
-              data={data}
-              style={getStyle}
-              onEachFeature={onEachFeature}
+    {/* Map Modal */}
+    <Modal show={showMap} onHide={() => setShowMap(false)} size="xl">
+      <Modal.Header closeButton>
+        <Modal.Title>Map</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div style={{ width: '100%', height: '600px' }}>
+          <MapContainer center={[-1.1318, 36.81]} zoom={6} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Ujamaa Africa</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-          ))}
 
-          <LayersControl position="topright">
-            <LayersControl.BaseLayer checked name="Default Street Map">
-              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            </LayersControl.BaseLayer>
+            <MarkerClusterGroup>
+              {markers.map((marker, index) => (
+                <Marker key={index} position={marker.geocode} icon={customIcon} />
+              ))}
+            </MarkerClusterGroup>
 
-            <LayersControl.BaseLayer name="Dark palette">
-              <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-                attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                minZoom={0}
-                maxZoom={20}
-                ext="png"
+            {geoJsonDataArray.map((data, index) => (
+              <GeoJSON
+                key={index}
+                data={data}
+                style={getStyle}
+                onEachFeature={onEachFeature}
               />
-            </LayersControl.BaseLayer>
+            ))}
 
-            <LayersControl.BaseLayer name="Stadia Stamen Watercolor">
-              <TileLayer
-                url='https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
-                attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                minZoom={0}
-                maxZoom={16}
-                ext="jpg"
-              />
-            </LayersControl.BaseLayer>
+            <LayersControl position="topright">
+              <LayersControl.BaseLayer checked name="Default Street Map">
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Satellite View">
-              <TileLayer
-                url='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png'
-                attribution='&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                minZoom={0}
-                maxZoom={20}
-                ext="jpg"
-              />
-            </LayersControl.BaseLayer>
-          </LayersControl>
-          <Legend />
-        </MapContainer>
-      </div>
-      <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', padding: '10px',  overflowY: 'auto' , fontFamily: 'Arial, sans-serif' , fontSize: '14px', backgroundColor: '#f2efe9', position: 'absolute', top: '90px', right: '10px', zIndex: '1000', opacity: '0.9' }}>
-        {clickedFeature ? (
-          <div>
-            <h2> County Statistics </h2>
+              <LayersControl.BaseLayer name="Dark palette">
+                <TileLayer
+                  url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+                  attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  minZoom={0}
+                  maxZoom={20}
+                  ext="png"
+                />
+              </LayersControl.BaseLayer>
 
-            <br></br>
-            <p>County : {clickedFeature.name}</p>
-            <br></br>
+              <LayersControl.BaseLayer name="Stadia Stamen Watercolor">
+                <TileLayer
+                  url='https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+                  attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  minZoom={0}
+                  maxZoom={16}
+                  ext="jpg"
+                />
+              </LayersControl.BaseLayer>
 
-            {/* TL span */}
-
-            <span 
-      className="icon 1" 
-      style={{ 
-        backgroundColor: '#999b37',
-        width: '24px', 
-        height: '24px', 
-        display: 'inline-block', 
-        marginRight: '8px'
-      }}><p style={{ margin: '0 0 0 30px' }}> Target Learners: {clickedFeature.TargetLearners}</p></span>
-
-      {/* LT span */}
-
-            <span 
-      className="icon 2" 
-      style={{ 
-        backgroundColor: 'blue',
-        width: '24px', 
-        height: '24px', 
-        display: 'list-item', 
-        marginTop: '8px',
-      }}>  <p style={{ margin: '0 0 0 30px' }}> Learners Trained: {clickedFeature.LearnersTrained}</p></span>
-            <br></br>
-      <br></br>
-
-          </div>
-        ) : (
-          <p>Click on a County to see the Statistics </p>
-        )}
-      </div>
-    </div>
-  );
+              <LayersControl.BaseLayer name="Satellite View">
+                <TileLayer
+                  url='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png'
+                  attribution='&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  minZoom={0}
+                  maxZoom={20}
+                  ext="jpg"
+                />
+              </LayersControl.BaseLayer>
+            </LayersControl>
+            <Legend />
+          </MapContainer>
+        </div>
+      </Modal.Body>
+    </Modal>
+  </div>
+);
 }
 
 export default App;
