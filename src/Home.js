@@ -1,24 +1,35 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Navbar,Nav,Carousel,Card,Button,Container,Row,Col,Form,} from 'react-bootstrap';
+import { Navbar,Nav,Carousel,Card,Button,Container,Row,Col,Form, Image, CardBody,} from 'react-bootstrap';
 import './Home.css';
 import 'react-bootstrap'
 
+
 const Home = () => {
+
   const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate(); // For navigation
+  const navigate = useNavigate(); 
+
   const handleSearch = (e) => {
     e.preventDefault();
-    // Pass the search term to the map page
+    
+    if (searchTerm.trim() === '') {
+      alert('Please enter a county name.');
+      return;
+    }
     navigate(`/map?search=${encodeURIComponent(searchTerm)}`);
   };
+  
 
   return (
     <div>
-      {/* Navigation Bar */}
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand as={Link} to="/">Ujamaa Africa</Navbar.Brand>
+    
+      <Navbar id='nav1'>
+        <Navbar.Brand as={Link} to="/">
+        <img src="ujamaa-africa\src\logo-1-Ujamaa-Africa.png" style={{width: '30px', height: '30px', marginRight: '10px'}}></img>
+        UJAMAA AFRICA</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+         
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
@@ -29,7 +40,7 @@ const Home = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Carousel */}
+     
       <Carousel>
         <Carousel.Item>
           <img
@@ -67,25 +78,60 @@ const Home = () => {
         {/* Features */}
         <h2 className="text-center mb-4">Our Features</h2>
         <Row>
+          
           <Col md={4}>
+        
             <Card className="feature-card">
-              <Card.Img variant="top" src="https://via.placeholder.com/150.png?text=Interactive+Map" />
+              <Card.Img variant="top" src="https://via.placeholder.com/150.png?text=scale+up" />
               <Card.Body>
-                <Card.Title>Interactive Map</Card.Title>
+               <Card.Title>Our Country-Wide Scale Up program</Card.Title>
                 <Card.Text>
-                  Explore our interactive map to learn about different counties.
+                  We can and will reach every school age youth in every society.
                 </Card.Text>
-                <Button variant="primary" as={Link} to="/map">
-                  View Map
+                <Button variant="primary" as={Link} to="/">
+                  Home
                 </Button>
               </Card.Body>
             </Card>
           </Col>
+
           {/* Add more feature cards as needed */}
+
+          <Col md={4}>
+          <Card className="feature-card2">
+          <Card.Img variant="top" src="https://via.placeholder.com/150.png?text=Interactive+Map" />
+          <Card.Title>Interactive Map</Card.Title>
+          <CardBody>
+                <Card.Text>
+                  Explore our interactive map , where you can see our progress for the outreach
+                </Card.Text>
+                <Button variant="primary" as={Link} to="/map">
+                  View Map
+                </Button>
+                </CardBody>
+                </Card>
+          </Col>
+        
+          <Col md={4}>
+          <Card className="feature-card3">
+          <Card.Img variant="top" src="https://via.placeholder.com/150.png?text=impact+society" />
+          <Card.Title>Explore our Programmes </Card.Title>
+          <CardBody>
+                <Card.Text>
+                  Here you can find about our impact on Society.
+                </Card.Text>
+                <Button variant="primary" as={Link} to="/statistics">
+                  Our statistics
+                </Button>
+                </CardBody>
+                </Card>
+          </Col>
+
         </Row>
+        
       </Container>
 
-      {/* Footer */}
+   
       <footer className="bg-dark text-white text-center py-3">
         &copy; {new Date().getFullYear()} Ujamaa Africa. All rights reserved.
       </footer>
